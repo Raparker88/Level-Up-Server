@@ -1,0 +1,13 @@
+[
+    {
+        "model": "levelupapi.event",
+        "pk": 1,
+        "fields": {
+            "gamer": 1,
+            "day": "2020-12-12",
+            "time": "17:00",
+            "location": "The Cat Cafe",
+            "game": 1 
+        }
+    }
+]

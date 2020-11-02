@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "level up api",
+            "database": "${workspaceFolder:levelup}/db.sqlite3"
+        }
+    ]
+}
