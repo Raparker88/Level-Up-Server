@@ -3,11 +3,36 @@
         "model": "levelupapi.event",
         "pk": 1,
         "fields": {
-            "gamer": 1,
-            "day": "2020-12-12",
-            "time": "17:00",
-            "location": "The Cat Cafe",
-            "game": 1 
+            "organizer": 1,
+            "description": "Welcome To at lunch",
+            "game": 1,
+            "day": "2021-10-04",
+            "time": "12:00",
+            "location": "The catery cafe"
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 2,
+        "fields": {
+            "organizer": 1,
+            "description": "Friday night Settlers and drinks",
+            "game": 2,
+            "day": "2021-08-14",
+            "time": "19:30",
+            "location": "The Patio"
+        }
+    },
+    {
+        "model": "levelupapi.event",
+        "pk": 3,
+        "fields": {
+            "organizer": 1,
+            "description": "Vale of the Frost King campaign. All weekend.",
+            "game": 3,
+            "day": "2021-04-20",
+            "time": "8:00",
+            "location": "Steve's yard"
         }
     }
 ]
