@@ -10,3 +10,11 @@ class Event(models.Model):
     description = models.CharField(max_length=200)
     game = models.ForeignKey("Game", on_delete=models.CASCADE)
     location = models.CharField(max_length=100)
+
+    @property
+    def joined(self):
+        return self.__joined
+
+    @joined.setter
+    def joined(self, value):
+        self.__joined = value
