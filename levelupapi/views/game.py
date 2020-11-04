@@ -28,14 +28,14 @@ class Games(ViewSet):
         game = Game()
         game.title = request.data["title"]
         game.maker = request.data["maker"]
-        game.number_of_players = request.data["numberOfPlayers"]
-        game.skill_level = request.data["skillLevel"]
+        game.number_of_players = request.data["number_of_players"]
+        game.skill_level = request.data["skill_level"]
         game.gamer = gamer
 
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed as the
         # `gameTypeId` in the body of the request.
-        gametype = GameType.objects.get(pk=request.data["gameTypeId"])
+        gametype = GameType.objects.get(pk=request.data["gametype_id"])
         game.gametype = gametype
 
         # Try to save the new game to the database, then
