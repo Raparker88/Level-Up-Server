@@ -38,6 +38,8 @@ class Games(ViewSet):
         gametype = GameType.objects.get(pk=request.data["gametype_id"])
         game.gametype = gametype
 
+
+
         # Try to save the new game to the database, then
         # serialize the game instance as JSON, and send the
         # JSON as a response to the client request
@@ -133,6 +135,15 @@ class Games(ViewSet):
         if game_type is not None:
             games = games.filter(gametype__id=game_type)
 
+        #checking if current user is the creator of each game and adding unmapped property
+        gamer = Gamer.objects.get(user=request.auth.user)
+        for game in games:
+            game.is_user_creator = None
+            if game.gamer == gamer:
+                game.is_user_creator = True
+            else:
+                game.is_user_creator = False
+
         serializer = GameSerializer(
             games, many=True, context={'request': request})
         return Response(serializer.data)
@@ -149,5 +160,5 @@ class GameSerializer(serializers.HyperlinkedModelSerializer):
             view_name='game',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'title', 'maker', 'number_of_players', 'skill_level', 'gametype')
+        fields = ('id', 'url', 'title', 'maker', 'number_of_players', 'skill_level', 'gametype', 'is_user_creator')
         depth = 1

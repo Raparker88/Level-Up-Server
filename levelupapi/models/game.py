@@ -10,3 +10,12 @@ class Game(models.Model):
     title = models.CharField(max_length=75)
     maker = models.CharField(max_length=50)
     gametype = models.ForeignKey("GameType", on_delete=models.CASCADE)
+
+
+    @property
+    def is_user_creator(self):
+        return self.__is_user_creator
+
+    @is_user_creator.setter
+    def is_user_creator(self, value):
+        self.__is_user_creator = value
