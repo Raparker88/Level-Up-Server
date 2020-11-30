@@ -88,11 +88,11 @@ class Games(ViewSet):
         game = Game.objects.get(pk=pk)
         game.title = request.data["title"]
         game.maker = request.data["maker"]
-        game.number_of_players = request.data["numberOfPlayers"]
-        game.skill_level = request.data["skillLevel"]
+        game.number_of_players = request.data["number_of_players"]
+        game.skill_level = request.data["skill_level"]
         game.gamer = gamer
 
-        gametype = GameType.objects.get(pk=request.data["gameTypeId"])
+        gametype = GameType.objects.get(pk=request.data["gametype_id"])
         game.gametype = gametype
         game.save()
 
@@ -160,5 +160,5 @@ class GameSerializer(serializers.HyperlinkedModelSerializer):
             view_name='game',
             lookup_field='id'
         )
-        fields = ('id', 'url', 'title', 'maker', 'number_of_players', 'skill_level', 'gametype', 'is_user_creator')
+        fields = ('id', 'url', 'title', 'maker', 'number_of_players', 'skill_level', 'gametype', 'is_user_creator', 'gametype_id')
         depth = 1
