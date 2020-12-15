@@ -57,7 +57,7 @@ def userevent_list(request):
                 event = Event()
                 event.day = row["day"]
                 event.time = row["time"]
-                event.game_name = row["title"]
+                event.game_name = row["title"]]
             
                 # Store the user's id
                 gid = row["gamer_id"]
